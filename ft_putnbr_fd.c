@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahakki <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/24 16:45:30 by ahakki            #+#    #+#             */
+/*   Updated: 2024/10/24 16:46:11 by ahakki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    char    *nb = ft_itoa(n);
+	char	*nb;
 
-    ft_putstr_fd(nb, fd);
+	nb = ft_itoa(n);
+	ft_putstr_fd(nb, fd);
 }
