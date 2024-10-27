@@ -16,7 +16,7 @@ int	ft_atoi(char const *str)
 {
 	int	i;
 	int	sign;
-	unsigned long long int	n;
+	int	n;
 
 	i = 0;
 	sign = 1;
@@ -31,7 +31,5 @@ int	ft_atoi(char const *str)
 		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
-	if (n >= 9223372036854775807)
-	    return (-1);
 	return (n * sign);
 }
