@@ -12,19 +12,28 @@
 
 #include "libft.h"
 
+static void	*ftb_memset(void *s, int c, size_t n)
+{
+	size_t		i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
+}
+
 void	*ft_calloc(size_t num, size_t size)
 {
-	size_t	i;
-	char	*arr;
+	void	*arr;
 
 	arr = malloc(num * size);
-	i = 0;
 	if (arr == NULL)
-	{
-		free(arr);
 		return (NULL);
-	}
-	while (i < num)
-		arr[i++] = 0;
+	ftb_memset(arr, 0, num * size);
 	return (arr);
 }

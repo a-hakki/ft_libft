@@ -2,19 +2,20 @@
 
 size_t ft_strlcpy(char *dst, const char *src,size_t n)
 {
-    size_t i = n - 1;
-    size_t len = ft_strlen(src);
-    char    *s = (char *)src;
+    size_t i;
+    size_t len;
+    char    *s;
 
+    i = 0;
+    len = ft_strlen(src);
+    s = (char*)src;
     if (n == 0)
         return len; // If n is 0, we cannot copy anything
-    //if (sizeof(dst) < n)
-        //return len;
-    while (i < n)
+    while (i < (n - 1) && s[i])
     {
         dst[i] = s[i];
-        i--;
+        i++;
     }
-    dst[n - 1] = '\0';
+    dst[i] = '\0';
     return (len);
 }

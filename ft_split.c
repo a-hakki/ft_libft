@@ -31,7 +31,7 @@ int	ft_cw(char const *str, char c)
 
 int	*ft_arr(char const *sw, char c, int *arr)
 {
-	int i;
+	int	i;
 	int	j;
 	int	lw;
 
@@ -56,7 +56,7 @@ int	*ft_arr(char const *sw, char c, int *arr)
 	}
 	return (arr);
 }
-#include <stdio.h>
+
 int	*ft_int_arr(char const *sw, char c, int cw)
 {
 	int	*arr;
@@ -77,7 +77,7 @@ char	**arr_cpy(char const *s, char **str, char c)
 	k = 0;
 	while (s[i])
 	{
-	    j = 0;
+		j = 0;
 		while (s[i] != c && s[i] != '\0')
 		{
 			str[k][j] = s[i];
@@ -94,7 +94,8 @@ char	**arr_cpy(char const *s, char **str, char c)
 	str[k] = NULL;
 	return (str);
 }
-/*char	**ft_split(char const *s, char c)
+
+char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	int		*arr;
@@ -112,21 +113,4 @@ char	**arr_cpy(char const *s, char **str, char c)
 		i++;
 	}
 	return (arr_cpy(s, str, c));
-}*/
-
-int main()
-{
-    int i = 0;
-    char **str = (char **)malloc(8 * ft_cw("123456789 4567 456h jgcc", ' '));
-    int *arr = ft_int_arr("123456789 6484 efew erye", ' ', ft_cw("123456789 8768 efew eree", ' '));
-    while (i < ft_cw("123456789 4567 456h jgcc", ' '))
-	{
-		str[i] = (char *)malloc(arr[i] + 1);
-		i++;
-	}
-	str = arr_cpy("123456789 6484 efew erye", str, ' ');
-    printf("%s\n", str[0]);
-    printf("%s\n", str[1]);
-    printf("%s\n", str[2]);
-    printf("%s\n", str[3]);
 }
