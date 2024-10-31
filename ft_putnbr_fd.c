@@ -12,10 +12,34 @@
 
 #include "libft.h"
 
+static void	ftb_putchar(int fd, int c)
+{
+	c = c + 48;
+	write(fd, &c, 1);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nb;
-
-	nb = ft_itoa(n);
-	ft_putstr_fd(nb, fd);
+	if (n == 0)
+		ftb_putchar(fd, n);
+	if (n == -2147483648)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ftb_putchar(fd, 8);
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n > 0)
+	{
+		if (n <= 9)
+			ftb_putchar(fd, n);
+		else
+		{
+			ft_putnbr_fd((n / 10), fd);
+			ftb_putchar(fd, n % 10);
+		}
+	}
 }
