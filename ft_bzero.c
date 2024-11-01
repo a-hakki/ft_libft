@@ -6,22 +6,22 @@
 /*   By: ahakki <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:33:17 by ahakki            #+#    #+#             */
-/*   Updated: 2024/10/24 13:33:19 by ahakki           ###   ########.fr       */
+/*   Updated: 2024/11/01 10:14:07 by ahakki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-        size_t  i;
-        unsigned char    *ptr;
+	size_t			i;
+	unsigned char	*ptr;
 
-        ptr = (unsigned char *)s;
-        i = 0;
-        while (i < n)
-        {
-                ptr[i] = '\0';
-                i++;
-        }
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
 }
