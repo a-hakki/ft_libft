@@ -1,44 +1,65 @@
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+static char	ftb_strchr(const char *s, char ch)
 {
-    size_t  i = 0;
-    size_t  len = 0;
-    size_t  len2 = 0;
-    char    *result;
-    char    *str = (char *)s1;
+	int	i = 0;
 
-    while (i < ft_strlen(str))
-    {
-        if (ft_strnstr(str + i, set, ft_strlen(set)))
-            i = i + ft_strlen(set);
-        else
+    while (s[i]) {
+        if (s[i] == ch)
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
+static size_t	ftb_strlen(const char *str)
+{
+    size_t len;
+    len = 0;
+    while (str[len])
+        len++;
+    return (len);
+}
+
+static char	*ftb_substr(char const *s, size_t start, size_t len)
+{
+        size_t  i;
+        char    *dst;
+        char    *src;
+
+        src = (char *)s;
+        i = 0;
+        if (start >= ftb_strlen(src))
+                len = 0;
+        else if (len > ftb_strlen(src + start))
+                len = ftb_strlen(src + start);
+        dst = malloc(sizeof(char) * (len + 1));
+        if (!dst)
+                return NULL;
+        while (i < len && src[i + start])
         {
-            len = i;
-            i = ft_strlen(str);
+                dst[i] = src[start + i];
+                i++;
         }
-    }
-    if (len == ft_strlen(str))
-        return (str + len);
-    while (i > len)
-    {
-        if (ft_strnstr(str + i - ft_strlen(set), set, ft_strlen(set)))
-            i = i - ft_strlen(set);
-        else
-        {
-            len2 = i;
-            i = len;
-        }
-    }
-    i = 0;
-    result = malloc(sizeof(char *) * (len2 - len + 1));
-    if (!result)
-    {
-        free(result);
-        return (NULL);
-    }
-    while (len < len2)
-        result[i++] = str[len++];
-    result[i] = '\0';
-    return (result);
+        dst[i] = '\0';
+        return (dst);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	start;
+	size_t	end;
+
+	i = 0;
+	while (s1[i] && ftb_strchr(set, s1[i]))
+			i++;
+	start = i;
+	i = ftb_strlen(s1) - 1;
+	while (i > start && ftb_strchr(set, s1[i]) && start != i + 1)
+		i--;
+	end = i + 1;
+	return (ftb_substr(s1, start, end - start));
+
+
 }
