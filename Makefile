@@ -50,7 +50,7 @@ bonus = \
 SRC += $(bonus)
 
 object = $(source:.c=.o)
-cc = gcc
+cc = cc
 flags = -Wall -Wextra -Werror
 
 %.o: %.c
