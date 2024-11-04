@@ -36,7 +36,7 @@ source =  \
 	ft_split.c \
 	ft_strdup.c 
 
-BONUS_SRC = \
+bonus = \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
@@ -47,7 +47,7 @@ BONUS_SRC = \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-SRC += $(BONUS_SRC)
+SRC += $(bonus)
 
 object = $(source:.c=.o)
 cc = gcc
