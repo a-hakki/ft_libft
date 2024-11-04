@@ -24,7 +24,7 @@ char	*ft_strdup(const char *s)
 	sor = (char *)s;
 	scopy = malloc(len +1);
 	if (scopy == NULL)
-		return NULL;
+		return (NULL);
 	while (i < len)
 	{
 		scopy[i] = sor[i];
