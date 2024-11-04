@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			i++;
 	start = i;
 	i = ftb_strlen(s1) - 1;
-	while (i > start && ftb_strchr(set, s1[i]) && start != i + 1)
+	while (i > start && ftb_strchr(set, s1[i]))
 		i--;
 	end = i + 1;
 	return (ftb_substr(s1, start, end - start));

@@ -12,105 +12,115 @@
 
 #include <stdlib.h>
 
-int	ft_cw(char const *str, char c)
-{
-	int	i;
-	int	wo;
+#include "libft.h"
 
-	i = 1;
-	wo = 0;
-	while (str[i])
+static int	allocator(char const *s, int row, char b)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (s[i] == b)
+		i++;
+	while (row--)
 	{
-		if ((str[i] == c && str[i - 1] != c) \
-				|| (str[i] != c && str[i + 1] == 0))
-			wo = wo + 1;
+		while (s[i] != b)
+			i++;
+		while (s[i] == b && s[i])
+			i++;
+	}
+	while (s[i] != b && s[i])
+	{
+		len++;
 		i++;
 	}
-	return (wo);
+	return (len + 1);
 }
 
-int	*ft_arr(char const *sw, char c, int *arr)
+static int	words(char const *s, char b)
+{
+	int	cnt;
+	int	i;
+
+	cnt = 0;
+	i = 0;
+	if (s[i] == '\0')
+		return (0);
+	if (b == '\0')
+		return (1);
+	while (s[i] == b)
+		i++;
+	while (s[i])
+	{
+		cnt++;
+		while (s[i] != b && s[i])
+			i++;
+		while (s[i] == b)
+			i++;
+	}
+	return (cnt);
+}
+
+static char	*stricpy(char *dest, char const *src, char b, int index)
 {
 	int	i;
 	int	j;
-	int	lw;
 
 	i = 0;
 	j = 0;
-	lw = 0;
-	while (sw[i])
+	while (src[j] == b)
+		j++;
+	while (index--)
 	{
-		while (sw[i] != c && sw[i] != 0)
-		{
-			lw++;
-			i++;
-		}
-		if (lw)
-		{
-			arr[j] = lw;
-			lw = 0;
+		while (src[j] != b && src[j])
 			j++;
-		}
-		else
-			i++;
+		while (src[j] == b)
+			j++;
 	}
+	while (src[j] != b && src[j])
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (dest);
+}
+
+static char	**check_free(char **arr, int i)
+{
+	if (!arr)
+		return (NULL);
+	while (i >= 0)
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i--;
+	}
+	free(arr);
+	arr = NULL;
 	return (arr);
 }
 
-int	*ft_int_arr(char const *sw, char c, int cw)
+char	**ft_split(char const *s, char b)
 {
-	int	*arr;
-
-	arr = (int *)malloc(cw * sizeof(int));
-	if (arr == NULL)
-		return (NULL);
-	return (ft_arr(sw, c, arr));
-}
-
-char	**arr_cpy(char const *s, char **str, char c)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	i = 0;
-	k = 0;
-	while (s[i])
-	{
-		j = 0;
-		while (s[i] != c && s[i] != '\0')
-		{
-			str[k][j] = s[i];
-			i++;
-			j++;
-		}
-		if (j)
-		{
-			str[k][j] = '\0';
-			k++;
-		}
-		i++;
-	}
-	str[k] = NULL;
-	return (str);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**str;
-	int		*arr;
+	char	**arr;
 	int		i;
 
-	i = 0;
-	arr = (int *)malloc(ft_cw(s, c));
-	str = (char **)malloc(sizeof(char *) * (ft_cw(s, c) + 1));
-	if (str == NULL || arr == NULL)
+	arr = (char **)malloc(sizeof(char *) * (words(s, b) + 1));
+	if (!arr)
 		return (NULL);
-	arr = ft_int_arr(s, c, ft_cw(s, c));
-	while (i < ft_cw(s, c))
+	i = 0;
+	while (i < words(s, b))
 	{
-		str[i] = (char *)malloc(arr[i] + 1);
+		arr[i] = (char *)malloc(allocator(s, i, b));
+		if (!arr[i])
+			return (check_free(arr, i));
 		i++;
 	}
-	return (arr_cpy(s, str, c));
+	i = 0;
+	while (i < words(s, b))
+	{
+		arr[i] = stricpy(arr[i], s, b, i);
+		i++;
+	}
+	arr[words(s, b)] = NULL;
+	return (arr);
 }
