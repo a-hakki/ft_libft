@@ -38,8 +38,13 @@ source =  \
 
 BONUS = \
 	ft_lstnew_bonus.c \
+<<<<<<< HEAD
 	#ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c \
+=======
+	ft_lstadd_front_bonus.c \
+	#ft_lstsize_bonus.c \
+>>>>>>> recovery-branch
 	ft_lstlast_bonus.c \
 	ft_lstadd_back_bonus.c \
 	ft_lstdelone_bonus.c \
