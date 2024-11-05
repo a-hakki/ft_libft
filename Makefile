@@ -36,25 +36,30 @@ source =  \
 	ft_split.c \
 	ft_strdup.c 
 
-bonus = \
-	ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+BONUS = \
+	ft_lstnew_bonus.c \
+	#ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c#
 
-SRC += $(bonus)
+BONUS_OBJ += $(BONUS:.c=.o)
 
 object = $(source:.c=.o)
+
 cc = cc
+
 flags = -Wall -Wextra -Werror
 
 %.o: %.c
 	$(cc) $(flags) -c $< -o $@
+
+bonus: $(NAME) $(BONUS_OBJ)
+	ar rc $(NAME) $(BONUS_OBJ)
 
 all: $(object) $(NAME)
 
@@ -69,4 +74,4 @@ fclean: clean
 
 re: fclean all
 
-.SECONDARY: $(object)
+.SECONDARY: $(object) $(BONUS_OBJ)
