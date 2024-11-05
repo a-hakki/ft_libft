@@ -59,7 +59,7 @@ flags = -Wall -Wextra -Werror
 all: $(object) $(NAME)
 
 $(NAME): $(object)
-	@ar rc $(NAME) $(object)
+	ar rc $(NAME) $(object)
 
 clean:
 	rm -f *.o
@@ -68,3 +68,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.SECONDARY: $(object)
