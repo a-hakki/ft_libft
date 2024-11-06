@@ -1,18 +1,17 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahakki <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 14:26:03 by ahakki            #+#    #+#             */
+/*   Updated: 2024/11/06 14:26:06 by ahakki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-<<<<<<< HEAD
-t_list    *ft_lstnew(void *content)
-{
-    t_list    *new_node;
-
-    new_node = (t_list *)malloc(sizeof(t_list));
-    if (!new_node)
-        return (NULL);
-    new_node->content = content;
-    new_node->next = NULL;
-    return (new_node);
-=======
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_node;
@@ -23,5 +22,4 @@ t_list	*ft_lstnew(void *content)
 	new_node->content = content;
 	new_node->next = NULL;
 	return (new_node);
->>>>>>> recovery-branch
 }
