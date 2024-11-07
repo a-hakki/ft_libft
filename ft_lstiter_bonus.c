@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !del)
+	if (!lst || !f)
 		return ;
 	while (lst)
 	{

@@ -38,19 +38,16 @@ source =  \
 
 BONUS = \
 	ft_lstnew_bonus.c \
-<<<<<<< HEAD
-	#ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c \
-=======
 	ft_lstadd_front_bonus.c \
-	#ft_lstsize_bonus.c \
->>>>>>> recovery-branch
+	ft_lstsize_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c \
 	ft_lstadd_back_bonus.c \
 	ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c \
 	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c#
+	ft_lstmap_bonus.c
 
 BONUS_OBJ += $(BONUS:.c=.o)
 
@@ -58,7 +55,7 @@ object = $(source:.c=.o)
 
 cc = cc
 
-flags = -Wall -Wextra -Werror
+flags = -Wall -Wextra -Werror -std=c99
 
 %.o: %.c
 	$(cc) $(flags) -c $< -o $@
@@ -79,4 +76,4 @@ fclean: clean
 
 re: fclean all
 
-.SECONDARY: $(object) $(BONUS_OBJ)
+ .SECONDARY: $(object) $(BONUS_OBJ)
