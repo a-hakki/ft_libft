@@ -60,10 +60,10 @@ flags = -Wall -Wextra -Werror -std=c99
 %.o: %.c
 	$(cc) $(flags) -c $< -o $@
 
-bonus: $(NAME) $(BONUS_OBJ)
-	ar rc $(NAME) $(BONUS_OBJ)
+all:$(object) $(NAME)
 
-all: $(object) $(NAME)
+bonus: $(BONUS_OBJ)
+	ar rc $(NAME) $(BONUS_OBJ)
 
 $(NAME): $(object)
 	ar rc $(NAME) $(object)
