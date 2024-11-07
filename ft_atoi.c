@@ -14,9 +14,9 @@
 
 int	ft_atoi(char const *str)
 {
-	int	i;
-	int	sign;
-	int	n;
+	int		i;
+	int		sign;
+	size_t	n;
 
 	i = 0;
 	sign = 1;
@@ -31,5 +31,7 @@ int	ft_atoi(char const *str)
 		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
+	if (n > LONG_MAX)
+		return (0 - (sign == 1));
 	return (n * sign);
 }
