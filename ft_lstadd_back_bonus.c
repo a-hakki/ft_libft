@@ -6,7 +6,7 @@
 /*   By: ahakki <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:24:08 by ahakki            #+#    #+#             */
-/*   Updated: 2024/11/06 14:24:13 by ahakki           ###   ########.fr       */
+/*   Updated: 2024/11/07 14:17:46 by ahakki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!lst || !new)
 		return ;
 	if (*lst == NULL)
+	{
 		*lst = new;
+		new->next = NULL;
+	}
 	else
 	{
 		last = ft_lstlast(*lst);
 		last->next = new;
+		new->next = NULL;
 	}
 }
