@@ -23,7 +23,9 @@ char	*ft_strnstr(const char *str, const char *sub, size_t n)
 	j = 0;
 	st1 = (char *)str;
 	st2 = (char *)sub;
-	if (!*st2)
+	if (!st1 && n == 0)
+		return (NULL);
+	if (*st2 == '\0')
 		return (st1);
 	while (st1[i] && i < n)
 	{
