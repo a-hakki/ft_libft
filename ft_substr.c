@@ -28,6 +28,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*dst;
 	char	*src;
 
+	if (!s)
+		return (NULL);
 	src = (char *)s;
 	i = 0;
 	if (start >= ftb_length(src))

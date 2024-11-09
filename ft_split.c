@@ -104,6 +104,8 @@ char	**ft_split(char const *s, char b)
 	char	**arr;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	arr = (char **)malloc(sizeof(char *) * (words(s, b) + 1));
 	if (!arr)
 		return (NULL);
