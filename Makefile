@@ -73,4 +73,6 @@ fclean: clean
 
 re: fclean all
 
- .SECONDARY: $(object) $(BONUS_OBJ)
+.SECONDARY: $(object) $(BONUS_OBJ)
+
+.PHONY: clean
