@@ -6,7 +6,7 @@
 /*   By: ahakki <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:23:17 by ahakki            #+#    #+#             */
-/*   Updated: 2024/11/04 22:23:22 by ahakki           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:00:32 by ahakki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stddef.h>
-
+# include <stdint.h>
 typedef struct s_list
 {
 	void			*content;
