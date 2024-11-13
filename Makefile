@@ -55,10 +55,7 @@ object = $(source:.c=.o)
 
 cc = cc
 
-flags = -Wall -Wextra -Werror -std=c99
-
-%.o: %.c
-	$(cc) $(flags) -c $< -o $@
+flags = -Wall -Wextra -Werror
 
 all:$(object) $(NAME)
 
@@ -69,7 +66,7 @@ $(NAME): $(object)
 	ar rc $(NAME) $(object)
 
 clean:
-	rm -f *.o
+	rm -f $(object) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
