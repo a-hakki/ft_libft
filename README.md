@@ -1,29 +1,52 @@
-Here’s a sample README content for the **ft_libft** project in the **42** curriculum:
-
----
 
 # ft_libft
 
+---
+
 ## Overview
-`ft_libft` is a project that forms the foundation of the **42** curriculum, focusing on reimplementing key functions from the C standard library. This library provides a custom version of standard C functions and additional utility functions to facilitate development in future projects.
+`ft_libft` is a foundational project in the **42** curriculum, focused on recreating essential functions from the C standard library and additional utility functions. This library is designed to support future projects by providing a custom implementation of frequently used C functions.
 
 ## Features
-The library includes:
+The library is organized into four primary sections: **Libc Functions**, **Additional Functions**, **Bonus Functions**, and **Custom Utility Functions**.
 
-1. **Recreated Standard Library Functions**  
-   Basic functions like `ft_strlen`, `ft_strcpy`, `ft_strdup`, and others, closely following the standard library's behaviors.
+### Libc Functions
+Reimplementations of standard C library functions, which include:
 
-2. **Memory Management Functions**  
-   Functions like `ft_memset`, `ft_memcpy`, `ft_memmove`, and others to handle raw memory operations.
+- **Memory Functions**  
+  `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memccpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
+  
+- **String Functions**  
+  `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strnstr`, `ft_strncmp`
+  
+- **Conversion Functions**  
+  `ft_atoi`
+  
+- **Character Checks**  
+  `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`
+  
+- **Character Case Conversion**  
+  `ft_toupper`, `ft_tolower`
 
-3. **String Manipulation Functions**  
-   Various tools for string handling, such as `ft_strchr`, `ft_strstr`, `ft_strncmp`, and more.
+### Additional Functions
+Functions not found in the standard library but useful for various programming tasks:
 
-4. **Utility Functions**  
-   Custom implementations of useful utility functions, like `ft_atoi` and `ft_isdigit`.
+- **String Duplication and Manipulation**  
+  `ft_strdup`, `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`
+  
+- **String Mapping and Iteration**  
+  `ft_strmapi`, `ft_striteri`
+  
+- **File Descriptor Functions**  
+  `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
 
-5. **Additional Bonus Functions**  
-   Functions like `ft_lstadd`, `ft_lstdel`, and others for list manipulations, designed to help with more complex data structures in future projects.
+### Bonus Functions
+These functions enable linked list manipulation, a useful structure for handling dynamic collections of data.
+
+- **Linked List Creation and Manipulation**  
+  `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
+
+### Custom Utility Functions (Optional)
+Additional helper functions may be added here, providing extra functionality beyond the standard requirements.
 
 ## Getting Started
 
@@ -60,14 +83,10 @@ gcc your_file.c -L. -lft -o your_program
 - **Makefile**: For easy compilation and cleaning.
 
 ## Goals
-- Reimplement essential C library functions to gain a deeper understanding of low-level programming.
-- Improve proficiency with C language syntax, memory handling, and data structures.
-- Build a solid library foundation for future projects at **42**.
+- Gain a thorough understanding of fundamental C programming by reimplementing critical library functions.
+- Improve proficiency with memory management, string manipulation, and linked list structures.
+- Create a robust, reusable library for use in future 42 projects.
 
 ## Author
 - **Hakki Abdelaziz**  
   1337 (42 Network)
-
----
-
-This README provides an organized and concise overview of the `ft_libft` project. Adjust the sections as needed, especially the list of features, if your implementation varies.
