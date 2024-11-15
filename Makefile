@@ -53,9 +53,9 @@ BONUS_OBJ += $(BONUS:.c=.o)
 
 object = $(source:.c=.o)
 
-cc = cc
+CC = cc
 
-flags = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all:$(object) $(NAME)
 
